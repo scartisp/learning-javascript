@@ -1,0 +1,5 @@
+{
+    "problems.visibility": true,
+    "problems.decorations.enabled": true,
+    "problems.autoReveal": true
+}

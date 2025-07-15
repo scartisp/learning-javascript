@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Amazon</title>
+  <style>
+    /* this is needed for css*/
+    .red-button {
+      /* starting this with a dot 
+        indicates it will apply to class objects of that name */
+      background-color: red;
+      color: white;
+      border: none;
+    }
+
+    .yellow-button {
+      background-color: yellow;
+    }
+    .orange-button {
+      background-color: orange;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button onclick="addItem(basketBall);">
+    add basketball
+  </button> <!-- use this for html-->
+
+  <button onclick="addItem(shirt);">
+    add shirt
+  </button> 
+
+    <button onclick="addItem(toaster);">
+    add toaster
+  </button> 
+
+  <button onclick="show();"> 
+    show cart
+  </button>
+
+  <button onclick="clearCart();"> 
+    clear cart
+  </button>
+  
+  <script src="amazon.js"> // use // or /**/for javascript areas
+  </script>
+</body>
+
+</html>
