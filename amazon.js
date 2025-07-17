@@ -2,13 +2,13 @@
 const basketBall = {
   name: 'basketball',
   price: 2095,
-  shipping: 0
+  shipping: 499
 };
 
 const shirt = {
   name: 'shirt',
   price: 799,
-  shipping: 0
+  shipping: 499
 };
 
 const toaster = {
@@ -24,49 +24,50 @@ function addItem(item) {
   saveCart();
 }
 
-// function addShirt() {
-//   cart.push(shirt);
-//   saveCart();
-// }
+function saveCart() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
 
 function clearCart() {
   cart = [];
   saveCart();
 }
 
-function saveCart() {
-  localStorage.setItem('cart', JSON.stringify(cart));
-}
 
 function show() {
   let totalNoTax = 0;
   let shipping = 0;
   let taxes = 0
+  const diffItems = [];
   for (let item of cart) {
     totalNoTax += item.price;
-    shipping += item.shipping;
-    taxes += item.price * .1;
+    if (!diffItems.some(product => product.name === item.name)) {
+      diffItems.push(item);
+      shipping += item.shipping;
+    }
   }
+  taxes = (shipping + totalNoTax) * .1;
+
+
   let total = Math.round(totalNoTax + shipping + taxes) / 100;
 
-  cart.length != 0 ? console.log(`the cart contains: ${displayCart()}\ntotal before taxes: ${totalNoTax /= 100}\nshipping and handiling: ${shipping /= 100}\ntaxes (10%): ${Math.round(taxes) / 100} \ntotal $${total}`) :
+  cart.length != 0 ? console.log(`items: ${displayCart()}
+shipping & handling: ${shipping /= 100}
+                   --------
+total before taxes: ${totalNoTax /= 100}
+estimated taxes (10%): ${Math.round(taxes) / 100}
+                   --------
+ORDER TOTAL $${total}`) :
     console.log(`the cart is empty. the total price is $${total}`);
 }
 
 function displayCart() {
-  const counts = {};
-  for (let item of cart) {
+  const counts = {}; // counts is a plain object, and uses item names as the keys. 
+  for (let item of cart) { // the keys are paired with the value (determined in the for loop)
     counts[item.name] = (counts[item.name] || 0) + 1;
   }
 
   return Object.entries(counts).map(([name, count]) => `${name} (${count})`)
     .join(', ');
-}
-
-// function getPrice() {
-//   let total = 0;
-//   for (let i = 0; i < cart.length; ++i) {
-//     total += cart[i].price + cart[i].shipping;
-//   }
-//   return Math.round(total * .1 + total) / 100;
-// }
+} // .entries turns counts into a 2d array. the inner array contains the key, and then the name for 
+// each key value pair that exists. .map iterates over the array and turns each pair into a string, with .join connecting each pair via the argument
