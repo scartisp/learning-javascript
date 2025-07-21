@@ -16,6 +16,7 @@
     .yellow-button {
       background-color: yellow;
     }
+
     .orange-button {
       background-color: orange;
     }
@@ -30,20 +31,36 @@
 
   <button onclick="addItem(shirt);">
     add shirt
-  </button> 
+  </button>
 
-    <button onclick="addItem(toaster);">
+  <button onclick="addItem(toaster);">
     add toaster
-  </button> 
+  </button>
 
-  <button onclick="show();"> 
+  <button onclick="show();">
     show cart
   </button>
 
-  <button onclick="clearCart();"> 
+  <button onclick="clearCart();">
     clear cart
   </button>
-  
+
+  <p>
+    <select id="number">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+    <select id = 'itemToRemove'>
+      <option>basketball</option>
+       <option>shirt</option>
+        <option>toaster</option>
+    </select>
+    <button onclick="removeItem();">
+      remove items
+    </button>
+  </p>
+
   <script src="amazon.js"> // use // or /**/for javascript areas
   </script>
 </body>

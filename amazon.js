@@ -20,8 +20,36 @@ const toaster = {
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function addItem(item) {
-  cart.push(item);
-  saveCart();
+  if (cart.length < 10) {
+    cart.push(item);
+    saveCart();
+  } else {
+    console.log('the cart is full');
+  }
+}
+
+function removeItem() {
+  let itemToRemove = document.getElementById('itemToRemove').value;
+  let amountToRemove =  document.getElementById('number').value;
+  let numInCart = 0
+  for (item of cart) {
+    if (item.name === itemToRemove) {
+      ++numInCart;
+    }
+  }
+  if (numInCart >= amountToRemove) {
+    let i = 0;
+    while (amountToRemove > 0) {
+      if (cart.at(i).name === itemToRemove) {
+        cart.splice(i, 1);
+        --amountToRemove;
+      } else
+        ++i;
+    }
+    saveCart();
+  } else {
+    console.log('not enough ' + itemToRemove + 's in the cart');
+  }
 }
 
 function saveCart() {
@@ -47,8 +75,6 @@ function show() {
     }
   }
   taxes = (shipping + totalNoTax) * .1;
-
-
   let total = Math.round(totalNoTax + shipping + taxes) / 100;
 
   cart.length != 0 ? console.log(`items: ${displayCart()}
