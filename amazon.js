@@ -3,7 +3,7 @@ const basketBall = {
   name: 'basketball',
   price: 2095,
   shipping: 499
-};//testing
+};
 
 const shirt = {
   name: 'shirt',
@@ -69,7 +69,9 @@ function show() {
   const diffItems = [];
   for (let item of cart) {
     totalNoTax += item.price;
-    if (!diffItems.some(product => product.name === item.name)) {
+    if (!diffItems.some(product => product.name === item.name)) { // must use 
+                                                                  // .some because .includes checks if the specific instance of the 
+                                                                  // object exists in the diffItems array, not just an instance
       diffItems.push(item);
       shipping += item.shipping;
     }
