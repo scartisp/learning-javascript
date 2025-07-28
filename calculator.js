@@ -1,4 +1,5 @@
-let calculation = '';
+let calculation = JSON.parse(localStorage.getItem('calculation')) || '';
+console.log(calculation);
 
 function add(input) {
   switch (input) {
@@ -15,4 +16,9 @@ function add(input) {
       console.log(calculation += input);
       break;
   }
+  saveCalculation();
 }
+
+function saveCalculation() {
+  localStorage.setItem('calculation', JSON.stringify(calculation));
+} 

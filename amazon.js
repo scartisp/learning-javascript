@@ -24,7 +24,7 @@ function addItem(item) {
     cart.push(item);
     saveCart();
   } else {
-    console.log('the cart is full');
+    alert('the cart is full');
   }
 }
 
@@ -48,7 +48,7 @@ function removeItem() {
     }
     saveCart();
   } else {
-    console.log('not enough ' + itemToRemove + 's in the cart');
+    alert('not enough ' + itemToRemove + 's in the cart');
   }
 }
 
