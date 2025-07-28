@@ -1,12 +1,15 @@
 let player;
 let computer;
+const scoreElement = document.querySelector('.js-score');
 const score = JSON.parse(localStorage.getItem('score')) || {
   wins: 0,
   losses: 0,
   ties: 0
-};    // YOU CAN USE THE || GUARD OPERATOR IN CASE THERE IS NO PREVIOUS INSTANCE OF SCORE 
+};    // YOU CAN USE THE || GUARD OPERATOR IN CASE THERE IS NO PREVIOUS INSTANCE OF SCORE
+displayScore();
 
-function result() {
+
+function getResult() {
   if ((player === 'rock' && computer === 'scissor') || (player === 'scissor' && computer === 'paper') || (player === 'paper' && computer === 'rock')) {
     ++score.wins;
     return 'you won';
@@ -19,7 +22,7 @@ function result() {
   }
 }
 
-function check() {
+function update() {
   computer = Math.random(); // math.random produces a random number >= 0 && < 1
   if (computer >= 0 && computer < 1 / 3) {
     computer = 'rock';
@@ -28,17 +31,22 @@ function check() {
   } else {
     computer = 'paper';
   }
-
-  alert('you chose ' + player + ' the computer chose ' + computer + ' '+ result() + '\n wins: ' + score.wins + ', losses: ' + score.losses + ', ties: ' + score.ties);
-  localStorage.setItem('score', JSON.stringify(score))
+  document.querySelector('.js-result').innerHTML = getResult();
+  document.querySelector('.js-moves').innerHTML = 'you chose ' + player + ', the computer chose ' + computer;
+  displayScore();
+  localStorage.setItem('score', JSON.stringify(score));
 }
 
 function reset() {
   score.wins = 0;
   score.losses = 0;
   score.ties = 0;
-  alert('your scores have been reset \nwins: ' + score.wins + ', losses: ' + score.losses + ', ties: ' + score.ties);
+  displayScore();
   localStorage.removeItem('score'); //this is how you remove something from local storage
+}
+
+function displayScore() {
+  scoreElement.innerHTML = 'wins: ' + score.wins + ', losses: ' + score.losses + ', ties: ' + score.ties;
 }
 
 //OTHER THINGS
@@ -70,8 +78,8 @@ console.log(thing == thing2);
 
 //this returns true because it is comparing the actual values
 console.log(JSON.stringify(thing) === JSON.stringify(thing2));
-const {a, b} = thing2;
-console.log(a + ' ' + b); 
+const { a, b } = thing2;
+console.log(a + ' ' + b);
 //this is called destructing. you are extracting the property from an object and putting it into a stand alone value
 
 // a is now it's own thing seperate from thing1/2, I can reference it in thing3s definition.

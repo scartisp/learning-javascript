@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM projects</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <p>Youtube Subscribe Button</p>
+  <button class="js-subscribe-button" onclick="changeSubStat();">Subscribe</button>
+
+  <p>Rock Paper Scissors</p>
+  <button class="js-rock-paper-scissors-button" onclick="">click here</button>
+  <br>
+  <button class="js-rock-button" onclick="
+    player = 'rock';
+    update();
+    "> rock </button>
+  <button class="js-paper-button" onclick="
+    player = 'paper';
+    update();
+    "> paper </button>
+  <button class="js-scissor-button" onclick="
+    player = 'scissor';
+    update(); 
+    "> scissors </button>
+  <p class="js-result"></p>
+  <p class="js-moves"></p>
+  <p class="js-score"></p>
+  <button onclick="reset();"> reset score </button>
+
+  <p>Amazon Shipping calculator <br> <br>
+    Orders under $40 = +$10 shipping. <br>
+    Orders over $40= FREE shipping.
+  </p>
+  <input placeholder="cost of order" class="js-order-price" onkeydown="
+  if (event.key === 'Enter')
+    calculateFinalPrice();
+  ">
+  <button onclick="calculateFinalPrice();">Calculate</button>
+  <p class="js-final-cost"></p>
+
+  <script src="subscribe.js"></script>
+  <script src="rockPaper.js"></script>
+  <script src="shippingCalculator.js"></script>
+</body>
+
+</html>
