@@ -19,18 +19,49 @@ const toaster = {
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+const removeOrAdd = document.getElementById('removeOrAdd');
+
+document.querySelector('.js-remove-add-button').addEventListener('click', function () {
+  if (removeOrAdd.value === 'remove items') {
+    console.log('fuck');
+    removeItem();
+  } else {
+    addItem();
+  }
+})
+
 function addItem(item) {
   if (cart.length < 10) {
     cart.push(item);
     saveCart();
+    show();
   } else {
     alert('the cart is full');
   }
 }
 
+function addItem() {
+  let itemToAdd = document.getElementById('itemToChange').value;
+  let amountToAdd = document.getElementById('number').value;
+  const products = {
+    basketball: basketBall,
+    shirt: shirt,
+    toaster: toaster
+  };
+  if (cart.length + Number(amountToAdd) <= 10) {
+    for (i = 0; i < amountToAdd; ++i) {
+      cart.push(products[itemToAdd]);
+    }
+    saveCart();
+      
+  } else {
+    alert('you cannot add ' + amountToAdd + ' ' + itemToAdd + 's');
+  }
+}
+
 function removeItem() {
-  let itemToRemove = document.getElementById('itemToRemove').value;
-  let amountToRemove =  document.getElementById('number').value;
+  let itemToRemove = document.getElementById('itemToChange').value;
+  let amountToRemove = document.getElementById('number').value;
   let numInCart = 0
   for (item of cart) {
     if (item.name === itemToRemove) {
@@ -47,6 +78,7 @@ function removeItem() {
         ++i;
     }
     saveCart();
+    show();
   } else {
     alert('not enough ' + itemToRemove + 's in the cart');
   }
@@ -58,11 +90,13 @@ function saveCart() {
 
 function clearCart() {
   cart = [];
+  show();
   saveCart();
 }
 
 
 function show() {
+  const outputElement = document.querySelector('.js-output');
   let totalNoTax = 0;
   let shipping = 0;
   let taxes = 0
@@ -70,8 +104,8 @@ function show() {
   for (let item of cart) {
     totalNoTax += item.price;
     if (!diffItems.some(product => product.name === item.name)) { // must use 
-                                                                  // .some because .includes checks if the specific instance of the 
-                                                                  // object exists in the diffItems array, not just an instance
+      // .some because .includes checks if the specific instance of the 
+      // object exists in the diffItems array, not just an instance
       diffItems.push(item);
       shipping += item.shipping;
     }
@@ -79,14 +113,14 @@ function show() {
   taxes = (shipping + totalNoTax) * .1;
   let total = Math.round(totalNoTax + shipping + taxes) / 100;
 
-  cart.length != 0 ? console.log(`items: ${displayCart()}
-shipping & handling: ${shipping /= 100}
-                   --------
-total before taxes: ${totalNoTax /= 100}
-estimated taxes (10%): ${Math.round(taxes) / 100}
-                   --------
+  cart.length != 0 ? outputElement.innerHTML = (`items: ${displayCart()} <br>
+shipping & handling: ${shipping /= 100} <br>
+                   -------- <br>
+total before taxes: ${totalNoTax /= 100} <br>
+estimated taxes (10%): ${Math.round(taxes) / 100} <br>
+                   --------<br>
 ORDER TOTAL $${total}`) :
-    console.log(`the cart is empty. the total price is $${total}`);
+    outputElement.innerHTML = (`the cart is empty. the total price is $${total}`);
 }
 
 function displayCart() {

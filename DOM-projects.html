@@ -38,16 +38,20 @@
     Orders under $40 = +$10 shipping. <br>
     Orders over $40= FREE shipping.
   </p>
-  <input placeholder="cost of order" class="js-order-price" onkeydown="
-  if (event.key === 'Enter')
-    calculateFinalPrice();
-  ">
+  <input placeholder="cost of order" class="js-order-price">
   <button onclick="calculateFinalPrice();">Calculate</button>
   <p class="js-final-cost"></p>
+
+  <input placeholder="enter something" class="js-random">
+  <p class="js-random-output"></p> <!-- added the js for this to shippingCalculator.js because eventListener is also used-->
 
   <script src="subscribe.js"></script>
   <script src="rockPaper.js"></script>
   <script src="shippingCalculator.js"></script>
+  <script>
+    window;//the window object represents the browser, meaning document is an object of window
+    // so you can do window.document, window.console, window.alert, etc
+  </script>
 </body>
 
 </html>
