@@ -23,7 +23,6 @@ const removeOrAdd = document.getElementById('removeOrAdd');
 
 document.querySelector('.js-remove-add-button').addEventListener('click', function () {
   if (removeOrAdd.value === 'remove items') {
-    console.log('fuck');
     removeItem();
   } else {
     addItem();
@@ -53,7 +52,7 @@ function addItem() {
       cart.push(products[itemToAdd]);
     }
     saveCart();
-      
+    show();
   } else {
     alert('you cannot add ' + amountToAdd + ' ' + itemToAdd + 's');
   }
