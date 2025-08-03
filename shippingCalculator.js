@@ -20,7 +20,5 @@ function calculateFinalPrice() {
 const randomElement = document.querySelector('.js-random');
 const randomOutputElement = document.querySelector('.js-random-output');
 randomElement.addEventListener('keyup', function(event) {
-   if (event.key) {
     randomOutputElement.innerHTML = randomElement.value; 
-  }
 })
