@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM projects</title>
+<link rel="stylesheet" href="../styles/DOM.css">
+</head>
+
+<body>
+  <p class="title">Youtube Subscribe Button</p>
+  <button class="js-subscribe-button subscribe-button" onclick="changeSubStat();">Subscribe</button> <!--objects can have multiple classes -->
+
+  <p class="title">Rock Paper Scissors</p>
+  <a class="link" href="rockPaper.html">Click here</a>
+
+  <p class="title">Amazon Shipping calculator </p>
+  <p>
+    Orders under $40 = +$10 shipping. <br>
+    Orders over $40= FREE shipping.
+  </p>
+  <input placeholder="cost of order" class="js-order-price order-price">
+  <button onclick="calculateFinalPrice();" class="final-cost">Calculate</button>
+  <p class="js-final-cost"></p>
+
+  <input placeholder="enter something" class="js-random">
+  <p class="js-random-output"></p>
+  <!-- added the js for this to shippingCalculator.js because eventListener is also used-->
+
+  <script src="../scripts/subscribe.js"></script>
+  <script src="../scripts/rockPaper.js"></script>
+  <script src="../scripts/shippingCalculator.js"></script>
+  <script>
+    window;//the window object represents the browser, meaning document is an object of window
+    // so you can do window.document, window.console, window.alert, etc
+  </script>
+</body>
+
+</html>

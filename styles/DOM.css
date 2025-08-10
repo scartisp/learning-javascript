@@ -1,0 +1,45 @@
+   body {
+      font-family: Arial;
+    }
+
+    .title{
+      font-weight: bold;
+    }
+
+    .subscribe-button {
+      border: none;
+      background-color: black;
+      color: white;
+      /* padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 15px; 
+      padding-right: 15px; */
+                              /* space on inside of element is called padding */
+      padding: 10px 15px 10px 15px;  /* the order is top, right, bottom, left */
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-bottom: 30px; /* space on outside of element is called margin */
+    }
+    .is-subscribed {
+      background-color: red;
+      color: black;
+    }
+
+    .link{
+      color:blue;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .order-price {
+      font-size: 15px;
+     padding: 10px; /* this gives padding to top, bottom, left right */
+    }
+    .final-cost {
+      background-color: green;
+      color: white;
+      font: 15px;
+      padding: 12px 15px; /* this does top, bottom, left right */
+      cursor: pointer;
+    }

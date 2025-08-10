@@ -32,7 +32,10 @@ function update() {
     computer = 'paper';
   }
   document.querySelector('.js-result').innerHTML = getResult();
-  document.querySelector('.js-moves').innerHTML = 'you chose ' + player + ', the computer chose ' + computer;
+  document.querySelector('.js-moves').innerHTML = ` You 
+    <img class="move-icon" src="../images/${player}-emoji.png">
+    <img class= "move-icon" src="../images/${computer}-emoji.png">
+    computer`;
   displayScore();
   localStorage.setItem('score', JSON.stringify(score));
 }

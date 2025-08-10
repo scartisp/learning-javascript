@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="../styles/rockPaper.css">
+</head>
+
+<body>
+  <p class="title">Rock Paper Scissors</p>
+  <button class="js-rock-button move-button" onclick="
+    player = 'rock';
+    update();
+    "><img class="move-icon" src="../images/rock-emoji.png"></button>
+  <button class="js-paper-button move-button" onclick="
+    player = 'paper';
+    update();
+    "> <img class="move-icon" src="../images/paper-emoji.png"> </button>
+  <button class="js-scissor-button move-button" onclick="
+    player = 'scissor';
+    update(); 
+    "> <img class="move-icon" src="../images/scissor-emoji.png"> </button>
+  <p class="js-result result"></p>
+  <p class="js-moves"></p>
+  <p class="js-score"></p>
+  <button class="reset-button" onclick="reset();"> Reset Score </button>
+
+
+  <script src="../scripts/RockPaper.js"> // use // or /**/for javascript areas
+  </script>
+</body>
+
+</html>
