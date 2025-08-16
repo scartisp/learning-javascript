@@ -20,14 +20,23 @@ const toaster = {
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const removeOrAdd = document.getElementById('removeOrAdd');
+const removeOrAddButton = document.querySelector('.js-remove-add-button');
 
-document.querySelector('.js-remove-add-button').addEventListener('click', function () {
+removeOrAddButton.addEventListener('click', function () {
   if (removeOrAdd.value === 'remove items') {
     removeItem();
   } else {
     addItem();
   }
 })
+
+removeOrAdd.addEventListener('change', function () {
+  if (this.value === 'remove items') { // using the function () syntax creates a "this" binding, can also use a () => and will not create a "this" binding
+    removeOrAddButton.innerHTML = 'Remove from cart';
+  } else
+    removeOrAddButton.innerHTML = 'Add to cart';
+  removeOrAddButton.classList.toggle('remove');
+  })
 
 function addItem(item) {
   if (cart.length < 10) {

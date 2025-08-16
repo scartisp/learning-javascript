@@ -1,0 +1,12 @@
+.remove-add-button {
+  background-color: green;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 51px;
+}
+
+.remove {
+  color: black;
+  background-color: red;
+}

@@ -9,16 +9,19 @@ initialCostElement.addEventListener('keydown', function (event) {
 function calculateFinalPrice() {
 
   if (initialCostElement.value < 40 && initialCostElement.value > 0) {
-    finalCostElement.innerHTML = '$' + (Number(initialCostElement.value*100) + 1000)/100; //Number() converts string into number, String() converts number into string
-  } else if (initialCostElement.value >= 40) { 
+    finalCostElement.classList.remove('invalid')
+    finalCostElement.innerHTML = '$' + (Number(initialCostElement.value * 100) + 1000) / 100; //Number() converts string into number, String() converts number into string
+  } else if (initialCostElement.value >= 40) {
+    finalCostElement.classList.remove('invalid')
     finalCostElement.innerHTML = '$' + initialCostElement.value;
   } else {
-    finalCostElement.innerHTML = 'cart is empty';
+    finalCostElement.classList.add('invalid')
+    finalCostElement.innerHTML = 'Error: cart is empty';
   }
 }
 
 const randomElement = document.querySelector('.js-random');
 const randomOutputElement = document.querySelector('.js-random-output');
-randomElement.addEventListener('keyup', function(event) {
-    randomOutputElement.innerHTML = randomElement.value; 
+randomElement.addEventListener('keyup', function (event) {
+  randomOutputElement.innerHTML = randomElement.value;
 })

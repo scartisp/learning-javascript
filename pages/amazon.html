@@ -3,24 +3,7 @@
 
 <head>
   <title> Amazon</title>
-  <style>
-    /* this is needed for css*/
-    .red-button {
-      /* starting this with a dot 
-        indicates it will apply to class objects of that name */
-      background-color: red;
-      color: white;
-      border: none;
-    }
-
-    .yellow-button {
-      background-color: yellow;
-    }
-
-    .orange-button {
-      background-color: orange;
-    }
-  </style>
+  <link rel="stylesheet" href="../styles/amazon.css">
 </head>
 
 <body>
@@ -56,11 +39,11 @@
       <option>shirt</option>
       <option>toaster</option>
     </select>
-    <select id='removeOrAdd'>
-      <option>remove items</option>
+    <select id='removeOrAdd' >
       <option>add items</option>
+      <option>remove items</option>
     </select>
-    <button class="js-remove-add-button">go</button>
+    <button class="js-remove-add-button remove-add-button">Add to cart</button>
   </p>
   <p class="js-output"></p>
 

@@ -43,3 +43,7 @@
       padding: 12px 15px; /* this does top, bottom, left right */
       cursor: pointer;
     }
+
+    .invalid {
+      color: red;
+    }
