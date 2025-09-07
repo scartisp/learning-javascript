@@ -1,0 +1,44 @@
+body{
+  font-family: Arial;
+}
+
+.todo-grid, 
+.todo-input-grid { /*can style multiple classes at once */
+  display: grid;
+  grid-template-columns: 200px 150px 100px; /* creates a grid with 3 coloumns, 1 200px long, another 150px, etc.
+  this is why three seperate elements are created per todo item,
+  so that each element will be properly spaced */
+  column-gap: 10px;
+  row-gap: 10px; /* this will not add a gap between the first and second class because they are considered
+  two different grids*/
+  align-items: center; /* aligns the buttons with the text, but squishes the add button.
+                          this is because the default value of align is stretch to match other things in columns,
+                          to fix, change it back to stretch for the input grid*/
+}
+.todo-input-grid{
+  margin-bottom: 10px;
+  align-items: stretch; /* this fixes the add button*/
+}
+
+.todo-input,
+.date-input {
+  font-size: 15px;
+  padding: 6px;
+}
+
+.todo-add-button {
+  background-color: green;
+  color: white;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.todo-delete-button {
+background-color: darkred;
+color: white;
+border: none;
+font-size: 15px;
+cursor: pointer;
+padding: 10px;
+}
