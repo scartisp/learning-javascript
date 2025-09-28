@@ -83,7 +83,7 @@ function displayList(todoList) {
 
 //array info
 myArray = [1, '1', true, { name: 'socks' }, [1, 2]];
-console.log(typeof (myArray)); //this will simply all an array an object
+console.log(typeof (myArray)); //this will simply call an array an object
 console.log(Array.isArray(myArray)); // how to check if an object is an array
 
 myArray.splice(0, 1) // what index you want to start from, how many things you want to remove
@@ -99,7 +99,16 @@ for (let word of countWords) {
     count[word] = 1;
 }
 console.log(count);
+console.log(count['grape']);
+//console.log(count[grape]); // this produces an error and the above doesn't because in the count object, grape is a string key, however, you are not passing in a string
+// Therefore, javascript looks for a variable with that name and can't find one
 
-//console.log(count[grapefruit]); // this produces an error and the above doesn't because the things in the array are strings.
-// Therefore, javascript looks for a property with that name.
-// But, because this is not a string, it treats it as a variable name, it can't find anything with that name, and then returns the error
+// array's are references, so the variable acts as a pointer to things in memory
+const array1= [1,2,3];
+const array2 = array1;
+const array3 = array1.slice(); // this is how you make a deep copy of an array
+array1.push(5);
+console.log("ARRAY SHALLOW COPY EXAMPLE:\narray 2 (shallow copy)" + array2 + "\narray 3 (deep copy) "+ array3); // array2 will have the changes in array1, because it is a shallow copy of array1\
+
+//destructuring
+const [firstValue, secondValue,thirdValue] = [1,2,3]; //this saves the individual values into different variables
