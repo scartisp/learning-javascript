@@ -31,3 +31,17 @@ function removeEgg(foods) {
 const array2 = ['egg', 'ham', 'egg', 'bacon', 'egg', 'egg', 'cheese'];
 console.log('practice 2\n' + removeEgg(array2.slice()) + '\n');
 console.log(array2);
+
+//practice 3: array of unique elements
+
+function unique(stringArray) {
+  const newArray = [];
+  for (i = 0; i < stringArray.length; ++i) {
+    if (stringArray.indexOf(stringArray[i]) === i) {
+      newArray.push(stringArray[i])
+    }
+  }
+  return newArray;
+}
+const array3 = ['green', 'blue', 'green', 'red', 'blue'];
+console.log('practice 3\n original array: ' + array3 + "\narray with only unique elements: " + unique(array3) + '\n');
