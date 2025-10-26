@@ -29,9 +29,35 @@ this does not have hoisting, meaning you cannot use the function before you defi
 //FUNCTIONS INSIDE OF OBJECTS
 const object1 = {
   num: 2,
-  function: function greeting() {
+  function: function() {
     console.log('hello world');
   }
 }
 
 object1.function();
+
+//PASSING FUNCTIONS INTO FUNCTIONS
+function run(param) {
+ param(); // literally just calling the function that I have passed into run as a parameter
+ // function that is parameter is called a callback function
+}
+run(function() {
+  console.log('hello again world');
+});
+
+//MORE PRACTICAL EXAMPLES: 
+console.log('\nTHIS IS THE MORE PRACTICAL SECTION\n');
+
+//ASYNCHRONOUS CODE: 
+
+setTimeout(function() {
+  console.log('timeout');
+}, 3000) // setTimeOut if built in function that takes in two parameters: 
+         // function it is supposed to execute, and how long it should wait before executing (in ms)
+
+//the below line will execute before the timeout one. This is because setTimeout does not kill execusion for x miliseconds, but simply sets a timer (asynchronous).
+console.log('this line will execute first');
+
+setInterval(function() {
+  console.log('interval');
+},3000); // this function takes a function as the first argument, and executes it every x amount of time where x is in miliseconds. also asyncrhonous
