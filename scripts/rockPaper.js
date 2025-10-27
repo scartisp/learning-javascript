@@ -1,5 +1,7 @@
 let player;
 let computer;
+let isAutoPlay = false;
+let intervalIdForAuto;
 const scoreElement = document.querySelector('.js-score');
 const score = JSON.parse(localStorage.getItem('score')) || {
   wins: 0,
@@ -23,14 +25,7 @@ function getResult() {
 }
 
 function update() {
-  computer = Math.random(); // math.random produces a random number >= 0 && < 1
-  if (computer >= 0 && computer < 1 / 3) {
-    computer = 'rock';
-  } else if (computer >= 1 / 3 && computer < 2 / 3) {
-    computer = 'scissor';
-  } else {
-    computer = 'paper';
-  }
+  computer = randomChoice();
   document.querySelector('.js-result').innerHTML = getResult();
   document.querySelector('.js-moves').innerHTML = ` You 
     <img class="move-icon" src="../images/${player}-emoji.png">
@@ -50,6 +45,29 @@ function reset() {
 
 function displayScore() {
   scoreElement.innerHTML = 'wins: ' + score.wins + ', losses: ' + score.losses + ', ties: ' + score.ties;
+}
+
+function randomChoice() {
+  chooser = Math.random(); // math.random produces a random number >= 0 && < 1
+  if (chooser >= 0 && chooser < 1 / 3) {
+    return 'rock';
+  } else if (chooser >= 1 / 3 && chooser < 2 / 3) {
+    return 'scissor';
+  } else {
+    return 'paper';
+  }
+}
+
+function autoPlay() {
+  isAutoPlay = !isAutoPlay;
+  if (isAutoPlay) {
+    intervalIdForAuto = setInterval(function () {
+      player = randomChoice();
+      update();
+    }, 1000)
+  } else {
+    clearInterval(intervalIdForAuto);
+  }
 }
 
 //OTHER THINGS
