@@ -50,14 +50,28 @@ console.log('\nTHIS IS THE MORE PRACTICAL SECTION\n');
 
 //ASYNCHRONOUS CODE: 
 
-setTimeout(function() {
-  console.log('timeout');
-}, 3000) // setTimeOut if built in function that takes in two parameters: 
+// setTimeout(function() {
+//   console.log('timeout');
+// }, 3000) // setTimeOut if built in function that takes in two parameters: 
          // function it is supposed to execute, and how long it should wait before executing (in ms)
 
 //the below line will execute before the timeout one. This is because setTimeout does not kill execusion for x miliseconds, but simply sets a timer (asynchronous).
 console.log('this line will execute first');
 
-setInterval(function() {
-  console.log('interval');
-},3000); // this function takes a function as the first argument, and executes it every x amount of time where x is in miliseconds. also asyncrhonous
+// setInterval(function() {
+//   console.log('interval');
+// },3000); // this function takes a function as the first argument, and executes it every x amount of time where x is in miliseconds. also asyncrhonous
+// returns an id. can use clearInterval(the interval's id) to stop it.
+
+['make dinner', 
+  'wash dishes',
+  'watch youtube'
+].forEach((value, index) =>{
+  console.log(index+' '+value);
+}) /* arrays have built in for each functions. the callback function (the inner most functions) has the arguments in the order:
+array[i]
+i
+array
+
+the syntax "=>" is an easier way to write this call back function (the anonymus function found within the forEach() function). samething as doing function() {}
+*/ 

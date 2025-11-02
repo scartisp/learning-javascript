@@ -28,18 +28,18 @@ function displayList(todoList) {
   ouptutElement.innerHTML = '';
 
   console.log(todoList.length);
-  for (i = 0; i < todoList.length; ++i) {
+  todoList.forEach((item, index) => {
     ouptutElement.innerHTML += `
-    <div>${todoList[i].name}</div>
-     <div>${todoList[i].dueDate} </div>
+    <div>${item.name}</div>
+     <div>${item.dueDate} </div>
     <button class="todo-delete-button" onclick="
-    todoList.splice(${i},1);
+    todoList.splice(${index},1);
     displayList(todoList);
     ">Delete</button> 
     `; // everythiing is in its own individual div because of how this section is styled (see todo-list.css).
     // The button is not in a div because it already has an html element.
     // Div is chosen because it has no default styling
-  }
+  })
   saveList();
 }
 
@@ -104,11 +104,11 @@ console.log(count['grape']);
 // Therefore, javascript looks for a variable with that name and can't find one
 
 // array's are references, so the variable acts as a pointer to things in memory
-const array1= [1,2,3];
+const array1 = [1, 2, 3];
 const array2 = array1;
 const array3 = array1.slice(); // this is how you make a deep copy of an array
 array1.push(5);
-console.log("ARRAY SHALLOW COPY EXAMPLE:\narray 2 (shallow copy)" + array2 + "\narray 3 (deep copy) "+ array3); // array2 will have the changes in array1, because it is a shallow copy of array1\
+console.log("ARRAY SHALLOW COPY EXAMPLE:\narray 2 (shallow copy)" + array2 + "\narray 3 (deep copy) " + array3); // array2 will have the changes in array1, because it is a shallow copy of array1\
 
 //destructuring
-const [firstValue, secondValue,thirdValue] = [1,2,3]; //this saves the individual values into different variables
+const [firstValue, secondValue, thirdValue] = [1, 2, 3]; //this saves the individual values into different variables
