@@ -67,6 +67,9 @@ console.log('this line will execute first');
   'wash dishes',
   'watch youtube'
 ].forEach((value, index) =>{
+  if (value === 'wash dishes') {
+    return; // there is no continue in forEach. But you can just return
+  }
   console.log(index+' '+value);
 }) /* arrays have built in for each functions. the callback function (the inner most functions) has the arguments in the order:
 array[i]
@@ -74,4 +77,5 @@ i
 array
 
 the syntax "=>" is an easier way to write this call back function (the anonymus function found within the forEach() function). samething as doing function() {}
+NO BREAK IN FOR EACH LOOP. IF NEED BREAK, JUST USE A FOR LOOP
 */ 

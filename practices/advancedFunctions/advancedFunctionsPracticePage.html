@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App</title>
+</head>
+
+<body>
+  <button class="js-wait" onclick="
+      const wait = document.querySelector('.js-wait');
+      wait.innerHTML = 'loading...';
+      setTimeout(function() {
+        wait.innerHTML = 'Finished!';
+      }, 1000)
+    ">start</button>
+    <br>
+  <button class="js-add-button" onclick="showAddText();">add to cart</button> 
+  <p class="js-add-text"></p>
+
+  <div>
+    <button class="js-add-message" onclick="++numOfMessages">add message</button>
+    <button class="js-remove-message" onclick="
+      if(numOfMessages > 0) {
+        --numOfMessages;
+      }
+    ">remove message</button>
+  </div>
+  <script src="advancedFunctionsPracticeScript.js">
+  </script>
+</body>
+
+</html>
