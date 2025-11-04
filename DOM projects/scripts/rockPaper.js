@@ -61,7 +61,7 @@ function randomChoice() {
 function autoPlay() {
   isAutoPlay = !isAutoPlay;
   if (isAutoPlay) {
-    intervalIdForAuto = setInterval(function () {
+    intervalIdForAuto = setInterval(() => {
       player = randomChoice();
       update();
     }, 1000)
