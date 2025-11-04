@@ -29,19 +29,19 @@ this does not have hoisting, meaning you cannot use the function before you defi
 //FUNCTIONS INSIDE OF OBJECTS
 const object1 = {
   num: 2,
-  function: function() {
+  function: function () {
     console.log('hello world');
   }
-}
+};
 
 object1.function();
 
 //PASSING FUNCTIONS INTO FUNCTIONS
 function run(param) {
- param(); // literally just calling the function that I have passed into run as a parameter
- // function that is parameter is called a callback function
+  param(); // literally just calling the function that I have passed into run as a parameter
+  // function that is parameter is called a callback function
 }
-run(function() {
+run(function () {
   console.log('hello again world');
 });
 
@@ -53,7 +53,7 @@ console.log('\nTHIS IS THE MORE PRACTICAL SECTION\n');
 // setTimeout(function() {
 //   console.log('timeout');
 // }, 3000) // setTimeOut if built in function that takes in two parameters: 
-         // function it is supposed to execute, and how long it should wait before executing (in ms)
+// function it is supposed to execute, and how long it should wait before executing (in ms)
 
 //the below line will execute before the timeout one. This is because setTimeout does not kill execusion for x miliseconds, but simply sets a timer (asynchronous).
 console.log('this line will execute first');
@@ -63,19 +63,38 @@ console.log('this line will execute first');
 // },3000); // this function takes a function as the first argument, and executes it every x amount of time where x is in miliseconds. also asyncrhonous
 // returns an id. can use clearInterval(the interval's id) to stop it.
 
-['make dinner', 
+['make dinner',
   'wash dishes',
   'watch youtube'
-].forEach((value, index) =>{
+].forEach((value, index) => {
   if (value === 'wash dishes') {
     return; // there is no continue in forEach. But you can just return
   }
-  console.log(index+' '+value);
+  console.log(index + ' ' + value);
 }) /* arrays have built in for each functions. the callback function (the inner most functions) has the arguments in the order:
 array[i]
 i
 array
 
-the syntax "=>" is an easier way to write this call back function (the anonymus function found within the forEach() function). samething as doing function() {}
-NO BREAK IN FOR EACH LOOP. IF NEED BREAK, JUST USE A FOR LOOP
-*/ 
+the syntax "=>" is an easier way to write this call back function (the anonymus function found within the forEach() function). samething as doing function() {}. IF PASSING FUNCTION INTO FUNCTION, RECOMMENDED TO USE ARROW FUNCTIONS
+NO BREAK IN FOR EACH LOOP. IF NEED BREAK, JUST USE A FOR LOOP.
+*/
+
+console.log('\nEND OF MORE PRACTICAL SECIONT\nARROW FUNCTIONS VS REGULAR FUNCTIONS\n')
+
+//for arrow functions with one parameter, () arround parameter are not necessary.
+const oneParam = param => {
+  console.log(param + 1);
+}
+oneParam(2);
+
+//if you have one line in arrow function, can just put that one line on same one as the function's declaration. In which case, do not need {} or return keyword.
+const oneLine = () => 2 + 3;
+
+console.log(oneLine());
+
+const obj2 = {
+  method() {
+  }
+}; // can declare functinons inside of objects like this called shorthand method syntax
+

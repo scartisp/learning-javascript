@@ -1,7 +1,9 @@
 const initialCostElement = document.querySelector('.js-order-price');
 const finalCostElement = document.querySelector('.js-final-cost');
 
-initialCostElement.addEventListener('keydown', function (event) {
+
+//WHEN USING ADDEVENTLISTENER, GOOD PRACTICE TO USE ARROWFUNCTIONS
+initialCostElement.addEventListener('keydown',  (event) => {
   if (event.key === 'Enter')
     calculateFinalPrice();
 }); // on keydownevents should be handled in the js, using addEventListener method.
@@ -22,6 +24,13 @@ function calculateFinalPrice() {
 
 const randomElement = document.querySelector('.js-random');
 const randomOutputElement = document.querySelector('.js-random-output');
-randomElement.addEventListener('keyup', function (event) {
+const eventListener4RandomElement = () => {
   randomOutputElement.innerHTML = randomElement.value;
-})
+}
+randomElement.addEventListener('keyup', eventListener4RandomElement);
+
+// randomElement.removeEventListener('keyup', eventListener4RandomElement);
+
+//did this this way to show how to remove an event listener, must put the anonymous function into a function variable,
+//put it in the event listener as second arg (as normal), and for the removeEventListener, do the same.
+//THIS REMOVE EVENT LISTENER IS NOT ACTUALLY USED
