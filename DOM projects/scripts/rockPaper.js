@@ -1,4 +1,3 @@
-//TODO: add keyboard functionality such that you can select rock with r, scissors with s, and paper with p
 // player/coimputer choices (rock,paper, or scissors)
 let player;
 let computer;
@@ -17,7 +16,7 @@ const score = JSON.parse(localStorage.getItem('score')) || {
 displayScore();
 
 //for using keyboard
-document.addEventListener('keydown', function (event) {
+document.addEventListener('keydown', (event) => {
   if (event.key === 'r') {
     player = 'rock';
     update();
