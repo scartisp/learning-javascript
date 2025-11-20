@@ -55,6 +55,6 @@ function displayList(todoList) {
     })
   }); // must be added after adding the todo and within the displayList function. this is because display list deletes everything in outputElement.innerHTML,
   // so everytime it is called, and the list is re-created, you need to re-add event listeners
+  
+  saveList();
 }
-
-saveList();
