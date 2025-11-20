@@ -10,6 +10,18 @@ const score = JSON.parse(localStorage.getItem('score')) || {
 };    // YOU CAN USE THE || GUARD OPERATOR IN CASE THERE IS NO PREVIOUS INSTANCE OF SCORE
 displayScore();
 
+document.addEventListener('keydown',  (event) => {
+  if (event.key === 'r') {
+    player = 'rock';
+    update();
+  } else if (event.key === 'p') {
+    player = 'paper';
+    update();
+  } else if (event.key === 's') {
+    player = 'scissor';
+    update();
+  }
+})
 
 function getResult() {
   if ((player === 'rock' && computer === 'scissor') || (player === 'scissor' && computer === 'paper') || (player === 'paper' && computer === 'rock')) {
