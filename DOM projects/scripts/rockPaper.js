@@ -1,8 +1,14 @@
+//TODO: add keyboard functionality such that you can select rock with r, scissors with s, and paper with p
+// player/coimputer choices (rock,paper, or scissors)
 let player;
 let computer;
+
+//things for autoplay
 let isAutoPlay = false;
 let intervalIdForAuto;
+//DOM things
 const scoreElement = document.querySelector('.js-score');
+//score
 const score = JSON.parse(localStorage.getItem('score')) || {
   wins: 0,
   losses: 0,
@@ -10,7 +16,21 @@ const score = JSON.parse(localStorage.getItem('score')) || {
 };    // YOU CAN USE THE || GUARD OPERATOR IN CASE THERE IS NO PREVIOUS INSTANCE OF SCORE
 displayScore();
 
+//for using keyboard
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'r') {
+    player = 'rock';
+    update();
+  } else if (event.key === 'p') {
+    player = 'paper';
+    update();
+  } else if (event.key === 's') {
+    player = 'scissor';
+    update();
+  }
+})
 
+// helper method for updating score
 function getResult() {
   if ((player === 'rock' && computer === 'scissor') || (player === 'scissor' && computer === 'paper') || (player === 'paper' && computer === 'rock')) {
     ++score.wins;
@@ -24,6 +44,7 @@ function getResult() {
   }
 }
 
+//for displaying any change
 function update() {
   computer = randomChoice();
   document.querySelector('.js-result').innerHTML = getResult();
@@ -35,6 +56,7 @@ function update() {
   localStorage.setItem('score', JSON.stringify(score));
 }
 
+//resets the score
 function reset() {
   score.wins = 0;
   score.losses = 0;
@@ -43,10 +65,13 @@ function reset() {
   localStorage.removeItem('score'); //this is how you remove something from local storage
 }
 
+// helper method for displayihg score
 function displayScore() {
   scoreElement.innerHTML = 'wins: ' + score.wins + ', losses: ' + score.losses + ', ties: ' + score.ties;
 }
 
+
+//picks a choice for the computer
 function randomChoice() {
   chooser = Math.random(); // math.random produces a random number >= 0 && < 1
   if (chooser >= 0 && chooser < 1 / 3) {
@@ -58,6 +83,8 @@ function randomChoice() {
   }
 }
 
+
+//autoplay feature
 function autoPlay() {
   isAutoPlay = !isAutoPlay;
   if (isAutoPlay) {
