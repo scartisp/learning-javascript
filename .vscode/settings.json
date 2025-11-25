@@ -1,5 +1,18 @@
 {
     "problems.visibility": true,
     "problems.decorations.enabled": true,
-    "problems.autoReveal": true
+    "problems.autoReveal": true,
+    
+    "[javascript]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+    "[cpp]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+    "[java]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    }
 }

@@ -76,11 +76,14 @@ array[i]
 i
 array
 
-the syntax "=>" is an easier way to write this call back function (the anonymus function found within the forEach() function). samething as doing function() {}. IF PASSING FUNCTION INTO FUNCTION, RECOMMENDED TO USE ARROW FUNCTIONS
+the syntax "=>" is an easier way to write this call back function
+(the anonymus function found within the forEach() function).
+same thing as doing function() {}. IF PASSING FUNCTION INTO FUNCTION,
+RECOMMENDED TO USE ARROW FUNCTIONS
 NO BREAK IN FOR EACH LOOP. IF NEED BREAK, JUST USE A FOR LOOP.
 */
 
-console.log('\nEND OF MORE PRACTICAL SECIONT\nARROW FUNCTIONS VS REGULAR FUNCTIONS\n')
+console.log('\nEND OF MORE PRACTICAL SECTION\nARROW FUNCTIONS VS REGULAR FUNCTIONS\n')
 
 //for arrow functions with one parameter, () arround parameter are not necessary.
 const oneParam = param => {
@@ -97,4 +100,28 @@ const obj2 = {
   method() {
   }
 }; // can declare functinons inside of objects like this called shorthand method syntax
+
+console.log('FILTER AND MAP FUNCTIONS FOR ARRAYS\n');
+
+/*like the for each function, it takes an anonymus function
+with two params, value and index
+DIFFERENCE IS, FILTER RETURNS A NEW ARRAY
+INNER FUNC NEEDS TO RETURN BOOL, IF RETURNS FALSE, NEW ARRAY
+DOESN'T INCLUDE VALUE, IF TRUE, IT INCLUDES VALUE
+*/
+
+console.log('filtering negative numbers from an array using filter:' +
+  '\noriginal array [1,-3,5] \nnew array: ' + [1, -3, 5].filter((value, index) => {
+    return value >= 0;
+  }).join(', '));
+
+
+//map creates a new array and whatever the inner function returns is what is added to new array
+// like the previous functions, inner function can take two args: value and index
+console.log('\n multiplying all elements in the original array by 2\n' +
+  'original array: [1,1,3] \nnew array: '
+)
+
+console.log([1, 1, 3].map(value => value * 2).join(', '));
+
 
