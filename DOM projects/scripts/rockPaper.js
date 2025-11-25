@@ -5,6 +5,7 @@ let computer;
 //things for autoplay
 let isAutoPlay = false;
 let intervalIdForAuto;
+const autoPlayButton = document.querySelector('.js-auto-play-button')
 //DOM things
 const scoreElement = document.querySelector('.js-score');
 //score
@@ -84,7 +85,7 @@ function randomChoice() {
 
 
 //autoplay feature
-function autoPlay() {
+autoPlayButton.addEventListener('click', () => {
   isAutoPlay = !isAutoPlay;
   if (isAutoPlay) {
     intervalIdForAuto = setInterval(() => {
@@ -94,4 +95,16 @@ function autoPlay() {
   } else {
     clearInterval(intervalIdForAuto);
   }
-}
+})
+
+// function autoPlay() {
+//   isAutoPlay = !isAutoPlay;
+//   if (isAutoPlay) {
+//     intervalIdForAuto = setInterval(() => {
+//       player = randomChoice();
+//       update();
+//     }, 1000)
+//   } else {
+//     clearInterval(intervalIdForAuto);
+//   }
+// }
