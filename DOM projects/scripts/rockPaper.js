@@ -5,8 +5,12 @@ let computer;
 //things for autoplay
 let isAutoPlay = false;
 let intervalIdForAuto;
-const autoPlayButton = document.querySelector('.js-auto-play-button')
 //DOM things
+const autoPlayButton = document.querySelector('.js-auto-play-button');
+const resetButton = document.querySelector('.js-reset-button');
+const resetDiv = document.querySelector('.js-reset-div');
+const resetYes = document.querySelector('.js-reset-yes');
+const resetNo = document.querySelector('.js-reset-no');
 const scoreElement = document.querySelector('.js-score');
 //score
 const score = JSON.parse(localStorage.getItem('score')) || {
@@ -27,7 +31,28 @@ document.addEventListener('keydown', (event) => {
   } else if (event.key === 's') {
     player = 'scissor';
     update();
+  } else if (event.key === 'a') {
+    autoPlay();
+  } else if (event.key === ' ') {
+    resetDiv.classList.remove('hide-reset-div');
   }
+})
+//shows reset div on clicking reset button
+resetButton.addEventListener('click', () => {
+  resetDiv.classList.remove('hide-reset-div');
+});
+//resets score and hides reset div on clicking "yes" for reset option
+resetYes.addEventListener('click', () => {
+  resetDiv.classList.add('hide-reset-div');
+  reset();
+});
+//hides reset div on cliking "no" for reset option
+resetNo.addEventListener('click', () => {
+  resetDiv.classList.add('hide-reset-div');
+})
+//starts autoplay on clicking autoplay option
+autoPlayButton.addEventListener('click', () => {
+  autoPlay();
 })
 
 // helper method for updating score
@@ -85,7 +110,9 @@ function randomChoice() {
 
 
 //autoplay feature
-autoPlayButton.addEventListener('click', () => {
+
+function autoPlay() {
+  toggleAutoPlayText();
   isAutoPlay = !isAutoPlay;
   if (isAutoPlay) {
     intervalIdForAuto = setInterval(() => {
@@ -95,16 +122,11 @@ autoPlayButton.addEventListener('click', () => {
   } else {
     clearInterval(intervalIdForAuto);
   }
-})
+}
 
-// function autoPlay() {
-//   isAutoPlay = !isAutoPlay;
-//   if (isAutoPlay) {
-//     intervalIdForAuto = setInterval(() => {
-//       player = randomChoice();
-//       update();
-//     }, 1000)
-//   } else {
-//     clearInterval(intervalIdForAuto);
-//   }
-// }
+function toggleAutoPlayText() {
+  if (autoPlayButton.innerHTML === 'Auto Play')
+    autoPlayButton.innerHTML = 'Stop Playing';
+  else
+    autoPlayButton.innerHTML = 'Auto Play'
+}
