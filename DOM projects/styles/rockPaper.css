@@ -20,7 +20,7 @@ body {
 .control-div * {
   margin-top: 5px;
   font-size: 14px;
-  /* display: none; */
+  color: white;
 }
 
 .move-icon {
