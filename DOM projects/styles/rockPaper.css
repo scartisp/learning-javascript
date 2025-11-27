@@ -8,6 +8,19 @@ body {
 .title {
   font-size: 30px;
   font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.prompt-for-controls {
+  text-decoration: underline;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.control-div * {
+  margin-top: 5px;
+  font-size: 14px;
+  /* display: none; */
 }
 
 .move-icon {

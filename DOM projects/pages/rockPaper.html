@@ -1,4 +1,3 @@
-<!--TODO add keybinding display to the html file-->
 <!DOCTYPE html>
 <html>
 
@@ -9,6 +8,14 @@
 
 <body>
   <p class="title">Rock Paper Scissors</p>
+  <p class="prompt-for-controls js-prompt-for-controls">click here to see keyboard controls</p>
+  <div class="control-div js-control-div" style="display: none;">
+    <p>
+      press "r" for rock, "p" for paper, and "s" for scissors <br>
+      press "a" for autoplay <br>
+      press space to reset score
+    </p>
+  </div>
 
   <button class="js-rock-button move-button button" onclick="
     player = 'rock';

@@ -6,6 +6,8 @@ let computer;
 let isAutoPlay = false;
 let intervalIdForAuto;
 //DOM things
+const controlPrompt = document.querySelector('.js-prompt-for-controls');
+const controls = document.querySelector('.js-control-div')
 const autoPlayButton = document.querySelector('.js-auto-play-button');
 const resetButton = document.querySelector('.js-reset-button');
 const resetDiv = document.querySelector('.js-reset-div');
@@ -35,8 +37,21 @@ document.addEventListener('keydown', (event) => {
     autoPlay();
   } else if (event.key === ' ') {
     resetDiv.classList.remove('hide-reset-div');
+    /*
+    ! known bug: if you press any other button and then space, the button pressed has 
+    ! "keyboard focus", meaning space will also act as a click
+    */
   }
 })
+
+//shows div for controls
+controlPrompt.addEventListener('click', () => {
+  if (controls.style.display === "none")
+    controls.style.display = "block";
+   else
+    controls.style.display ="none";
+})
+
 //shows reset div on clicking reset button
 resetButton.addEventListener('click', () => {
   resetDiv.classList.remove('hide-reset-div');
